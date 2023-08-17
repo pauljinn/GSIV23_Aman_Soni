@@ -1,0 +1,43 @@
+/* Header.css */
+.app-bar {
+  background-color: #ffff !important;
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.search {
+  flex: 1;
+  border-radius: 10px;
+  background-color: #dfdfdf !important;
+  margin-right: 50%;
+  height:35px;
+}
+
+.input {
+    padding: 0px !important;
+    margin-left: 1% !important;
+}
+
+.search-icon {
+    color: #9b9b9b;
+    
+}
+
+.input {
+  width: 100%;
+  padding: 8px;
+  padding-left: 16px;
+}
+
+.icon-button {
+  color: #4a4a4a;
+}
+
+.detail {
+  color:  #4a4a4a;
+  font-weight: 600;
+  font-size: 16px;
+}
