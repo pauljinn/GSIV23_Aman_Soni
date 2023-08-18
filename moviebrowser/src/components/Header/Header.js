@@ -38,7 +38,6 @@ function SearchBar() {
   const dispatch = useDispatch();
 
   const handleSearchChange = (event) => {
-    console.log("Search text ", isNullOrUndefined(event.target.value));
     setSearchText(event.target.value); // Update state with entered text
     if (!isNullOrUndefined(event.target.value)) {
       dispatch(searchMovie(event.target.value));
