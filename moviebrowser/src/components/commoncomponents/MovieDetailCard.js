@@ -23,7 +23,7 @@ const MovieDetailCard = () => {
       <CardMedia
         component="img"
         sx={{
-          width: "30%",
+          width: "15%",
           maxHeight: "100%",
           objectFit: "cover",
         }}
@@ -35,8 +35,9 @@ const MovieDetailCard = () => {
           flex: 1,
           display: "flex",
           flexDirection: "column",
-          padding: "4px",
+          padding: "5px",
           pt: 0,
+          pl: 2,
         }}
       >
         <Typography variant="h6" component="div">
@@ -57,7 +58,7 @@ const MovieDetailCard = () => {
             textOverflow: "ellipsis",
             // Standardized approach using clamp
             display: "-webkit-box",
-            WebkitLineClamp: 3, // Show up to 2 lines of text
+            WebkitLineClamp: 3, // Show up to 3 lines of text
             WebkitBoxOrient: "vertical",
             mt: 2,
           }}
