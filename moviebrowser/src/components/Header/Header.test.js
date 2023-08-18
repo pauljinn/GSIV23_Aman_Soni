@@ -39,5 +39,8 @@ describe("Header Component", () => {
     // Check if "Movie Details" is rendered when the route is /details
     const movieDetailsText = getByText("Movie Details");
     expect(movieDetailsText).toBeInTheDocument();
+
+    const homeButton = screen.getByTestId("home-button", { name: "Home" });
+    expect(homeButton).toBeInTheDocument();
   });
 });
