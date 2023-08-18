@@ -1,10 +1,14 @@
 import axios from "axios";
-import { API_KEY, UPCOMING_MOVIE_URL } from "../constants/constant";
+import {
+  API_KEY,
+  SEARCH_MOVIE_URL,
+  UPCOMING_MOVIE_URL,
+} from "../constants/constant";
 
-export let GetMovieList = async () => {
+export let getUpcomingMovieListApi = async () => {
   let page = 1;
   let data = [];
-  while (page <= 10) {
+  while (page <= 2) {
     let getData = await axios.get(UPCOMING_MOVIE_URL, {
       params: {
         api_key: API_KEY,
@@ -18,4 +22,14 @@ export let GetMovieList = async () => {
     page++;
   }
   return data;
+};
+
+export let searchMovieApi = async (data) => {
+  let getData = await axios.get(SEARCH_MOVIE_URL, {
+    params: {
+      api_key: API_KEY,
+      query: data,
+    },
+  });
+  return getData.data;
 };

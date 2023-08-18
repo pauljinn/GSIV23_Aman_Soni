@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Layout from "../components/Layout";
-import Details from "../components/Details";
-import List from "../components/List";
+import Layout from "../pages/Layout";
+import Details from "../pages/Details";
+import List from "../pages/List";
 
 function Routing() {
   return (
