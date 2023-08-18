@@ -56,9 +56,8 @@ const MovieDetailCard = () => {
             maxHeight: "60px",
             overflow: "hidden",
             textOverflow: "ellipsis",
-            // Standardized approach using clamp
             display: "-webkit-box",
-            WebkitLineClamp: 3, // Show up to 3 lines of text
+            WebkitLineClamp: 3,
             WebkitBoxOrient: "vertical",
             mt: 2,
           }}
@@ -72,9 +71,9 @@ const MovieDetailCard = () => {
             maxHeight: "60px",
             overflow: "hidden",
             textOverflow: "ellipsis",
-            // Standardized approach using clamp
+
             display: "-webkit-box",
-            WebkitLineClamp: 2, // Show up to 2 lines of text
+            WebkitLineClamp: 2,
             WebkitBoxOrient: "vertical",
             mt: 2,
           }}
