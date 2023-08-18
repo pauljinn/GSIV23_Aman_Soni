@@ -48,7 +48,7 @@ function SearchBar() {
   };
 
   const handleClearClick = () => {
-    dispatch(fetchMovies);
+    dispatch(fetchMovies());
     setSearchText("");
   };
 

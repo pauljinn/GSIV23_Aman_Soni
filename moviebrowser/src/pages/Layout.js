@@ -9,7 +9,6 @@ function Layout() {
   const navigate = useNavigate();
   const location = useLocation();
   useEffect(() => {
-    dispatch(fetchMovies());
     // dispatch(searchMovie("talk"));
     if (location.pathname === "/") {
       navigate("/list");

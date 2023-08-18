@@ -1,22 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ImageDescriptionCard from "../components/commoncomponents/ImageDescriptionCard";
 import { Grid } from "@mui/material";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
+  getImageUrl,
   isImagePresent,
   isNullOrUndefined,
   isOverviewPresent,
 } from "../utils/util";
 import { IMAGE_BASE_URL } from "../constants/constant";
 import Loader from "../components/commoncomponents/Loader";
+import { fetchMovies } from "../redux/slices/fetchMoviesSlice";
 
 function List() {
   const movieList = useSelector((state) => state.movieList);
-  // const movieListData = Array.isArray(movieList.data)
-  //   ? movieList.data
-  //   : movieList.data.results;
+  const dispatch = useDispatch();
 
-  console.log(movieList?.data?.[0]?.results);
+  useEffect(() => {
+    dispatch(fetchMovies());
+  }, []);
+
   return movieList.isLoading ? (
     <Loader />
   ) : movieList.data.length > 0 ? (
@@ -28,19 +31,11 @@ function List() {
           movieList.data.map((page, index) => {
             return page.results.map((movie, index) => {
               if (isOverviewPresent(movie) && isImagePresent(movie)) {
+                let imageUrl = getImageUrl(movie);
+                let modifiedMovie = { ...movie, imageUrl: imageUrl };
                 return (
                   <Grid item xs={12} sm={6} md={4} lg={2} key={index}>
-                    <ImageDescriptionCard
-                      title={movie.title}
-                      rating={movie.vote_average}
-                      description={movie.overview}
-                      imageUrl={
-                        IMAGE_BASE_URL +
-                        (!isNullOrUndefined(movie.backdrop_path)
-                          ? movie.backdrop_path
-                          : movie.poster_path)
-                      }
-                    />
+                    <ImageDescriptionCard movieDetail={modifiedMovie} />
                   </Grid>
                 );
               }

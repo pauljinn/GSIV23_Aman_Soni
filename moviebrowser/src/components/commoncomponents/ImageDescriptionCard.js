@@ -1,13 +1,33 @@
 import React from "react";
 import { Card, CardContent, CardMedia, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import {
+  fetchMovieDetail,
+  storeMovieDetail,
+} from "../../redux/slices/movieDetailSlice";
+import { useDispatch } from "react-redux";
 
-function ImageDescriptionCard({ imageUrl, description, title, rating }) {
+function ImageDescriptionCard({ movieDetail }) {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  function NavigateToDetailPage(movieDetail) {
+    dispatch(fetchMovieDetail(movieDetail.id));
+    navigate("/details");
+  }
+
   return (
-    <div className="cursor-pointer" onClick={() => navigate("/details")}>
+    <div
+      className="cursor-pointer"
+      onClick={() => NavigateToDetailPage(movieDetail)}
+    >
       <Card sx={{ height: "300px" }}>
-        <CardMedia component="img" height="200" image={imageUrl} alt="Image" />
+        <CardMedia
+          component="img"
+          height="200"
+          image={movieDetail.imageUrl}
+          alt="Image"
+        />
         <CardContent>
           <div className="d-flex justify-content-between">
             <Typography
@@ -20,10 +40,10 @@ function ImageDescriptionCard({ imageUrl, description, title, rating }) {
                 WebkitBoxOrient: "vertical",
               }}
             >
-              {title}
+              {movieDetail.title}
             </Typography>
             <Typography variant="subtitle1" color="textSecondary">
-              {rating}
+              {movieDetail.rating}
             </Typography>
           </div>
           <Typography
@@ -40,7 +60,7 @@ function ImageDescriptionCard({ imageUrl, description, title, rating }) {
               marginTop: "8px", // Adjust spacing between title/rating and description
             }}
           >
-            {description}
+            {movieDetail.overview}
           </Typography>
         </CardContent>
       </Card>

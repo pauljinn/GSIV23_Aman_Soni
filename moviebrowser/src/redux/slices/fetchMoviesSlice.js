@@ -8,10 +8,8 @@ import {
 
 // Action
 export const fetchMovies = createAsyncThunk("fetchMovies", async () => {
-  console.log("thunk");
   const getData = getUpcomingMovieListApi()
     .then((res) => {
-      console.log("Upcoming ", res);
       return res;
     })
     .catch((err) => {
@@ -25,7 +23,6 @@ export const searchMovie = createAsyncThunk(
   async (searchText) => {
     const getData = searchMovieApi(searchText)
       .then((res) => {
-        console.log("Searched ", res);
         return res;
       })
       .catch((err) => {
@@ -57,7 +54,7 @@ const fetchMoviesSlice = createSlice({
       }
     });
     builder.addCase(fetchMovies.rejected, (state, action) => {
-      console.log("Error", action.payload);
+      console.error("Error", action.payload);
       state.isError = true;
       state.isLoading = false;
     });
@@ -75,7 +72,7 @@ const fetchMoviesSlice = createSlice({
       }
     });
     builder.addCase(searchMovie.rejected, (state, action) => {
-      console.log("Error", action.payload);
+      console.error("Error", action.payload);
       state.isError = true;
       state.isLoading = false;
     });
