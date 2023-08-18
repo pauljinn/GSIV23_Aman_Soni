@@ -9,4 +9,3 @@ export const UPCOMING_MOVIE_URL = MOVIES_BASE_URL + "/movie/upcoming";
 export const SEARCH_MOVIE_URL = MOVIES_BASE_URL + "/search/movie";
 
 export const FETCH_MOVIE_DETAIL_URL = MOVIES_BASE_URL + "/movie/";
-// https://api.themoviedb.org/3/movie/615656?api_key=26d81cb2f2355f883990874509f92694&append_to_response=credits
