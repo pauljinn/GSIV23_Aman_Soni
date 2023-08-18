@@ -23,7 +23,7 @@ const MovieDetailCard = () => {
       <CardMedia
         component="img"
         sx={{
-          width: "15%",
+          width: "20%",
           maxHeight: "100%",
           objectFit: "cover",
         }}
