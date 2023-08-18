@@ -1,10 +1,6 @@
 import React from "react";
 import { Card, CardContent, CardMedia, Typography } from "@mui/material";
-import { useNavigate } from "react-router-dom";
-import {
-  fetchMovieDetail,
-  storeMovieDetail,
-} from "../../redux/slices/movieDetailSlice";
+import { createSearchParams, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
 function ImageDescriptionCard({ movieDetail }) {
@@ -12,8 +8,12 @@ function ImageDescriptionCard({ movieDetail }) {
   const dispatch = useDispatch();
 
   function NavigateToDetailPage(movieDetail) {
-    dispatch(fetchMovieDetail(movieDetail.id));
-    navigate("/details");
+    navigate({
+      pathname: "/details",
+      search: createSearchParams({
+        id: movieDetail.id,
+      }).toString(),
+    });
   }
 
   return (
